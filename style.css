@@ -1,0 +1,120 @@
+body {
+    background: linear-gradient(to right, #ff0000, #000000); /* Gradiente de rojo a negro */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before, body::after {
+    content: "";
+    background: url('logo1.png') no-repeat center center;
+    background-size: 400px auto; /* Ajusta el tamaño de la imagen a 400px de ancho */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px; /* Ajusta el ancho del área de la imagen */
+    height: 100%;
+    z-index: -1;
+    animation: float-vertical 5s infinite alternate; /* Animación de movimiento vertical */
+}
+
+body::before {
+    left: 0; /* Imagen en el lado izquierdo */
+}
+
+body::after {
+    right: 0; /* Imagen en el lado derecho */
+}
+
+@keyframes float-vertical {
+    0% {
+        transform: translateY(-50%) translateY(0);
+    }
+    100% {
+        transform: translateY(-50%) translateY(20px); /* Mueve la imagen verticalmente */
+    }
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #ff0000; /* Color rojo para el título */
+}
+
+.container {
+    max-width: 600px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ff0000; /* Borde rojo */
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #cc0000; /* Color más oscuro en focus */
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.5); /* Sombra en focus */
+}
+
+.btn-danger {
+    background-color: #ff0000; /* Botón de registro rojo */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px; /* Botones redondeados */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-danger::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+}
+
+.btn-danger:hover {
+    background-color: #cc0000; /* Color más oscuro en hover */
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra adicional en hover */
+    color: #fff;
+}
+
+.btn-danger:active::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+
+
+
+
+
+
